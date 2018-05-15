@@ -22,8 +22,10 @@
 	}
 	
 	#menu {
+	
 		width: auto;
 		margin: 0px auto;
+		/*
 		border: 1px solid #222;
 		background-color: #111;
 		background-image: -moz-linear-gradient(#444, #111); 
@@ -38,6 +40,7 @@
 		-moz-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
 		-webkit-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
 		box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+		*/
 	}
 	
 	#menu:before,
@@ -66,7 +69,7 @@
 	#menu a {
 		float: left;
 		padding: 12px 30px;
-		color: #999;
+		color: #ffffff;
 		text-transform: uppercase;
 		font: bold 12px Arial, Helvetica;
 		text-decoration: none;
@@ -74,11 +77,11 @@
 	}
 	
 	#menu li:hover > a {
-		color: #fafafa;
+		color: #ffff80;
 	}
 	
 	*html #menu li a:hover { /* IE6 only */
-		color: #fafafa;
+		color: #ffff80;
 	}
 	
 	#menu ul {

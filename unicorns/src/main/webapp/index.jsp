@@ -2,7 +2,17 @@
 <%@ include file="/WEB-INF/views/common/taglibs.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
+<%
 
+response.setHeader("Pragma", "no-cache");
+
+response.setHeader("Cache-Control", "no-cache");
+
+response.setDateHeader("Expires", 0);
+
+response.flushBuffer();
+
+%>
   <head>
 
     <meta charset="utf-8">
@@ -28,9 +38,7 @@
     
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menuStyle.css" type="text/css" media="screen"/>
 	<style>
-	.fixed-top{
-		background-color:powderblue;
-	}
+
 	</style>    
   </head>
 
@@ -45,6 +53,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto" id="menu">
+         	<!-- 
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">關於</a>
             </li>
@@ -57,166 +66,143 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">聯繫</a>
             </li>
-		<li><a href="/">Home</a></li>
+            -->
+		<li><a href="/">首頁</a></li>
 
 		<li>
-			<a href="">Categories</a>
-			<ul>
-				<li>
-					<a href="">CSS</a>
-					<ul>
-						<li><a href="">Item 11</a></li>
-
-						<li><a href="">Item 12</a></li>
-						<li><a href="">Item 13</a></li>
-						<li><a href="">Item 14</a></li>
-					</ul>				
-				</li>
-				<li>
-					<a href="">Graphic design</a>
-
-					<ul>
-						<li><a href="">Item 21</a></li>
-						<li><a href="">Item 22</a></li>
-						<li><a href="">Item 23</a></li>
-						<li><a href="">Item 24</a></li>
-					</ul>				
-				</li>
+			<a href="">合購</a>
+		<ul>
 
 				<li>
-					<a href="">Development tools</a>
-					<ul>
-						<li><a href="">Item 31</a></li>
-						<li><a href="">Item 32</a></li>
-						<li><a href="">Item 33</a></li>
-						<li><a href="">Item 34</a></li>
-
-					</ul>				
-				</li>
-				<li>
-					<a href="">Web design</a>				
-					<ul>
-						<li><a href="">Item 41</a></li>
-						<li><a href="">Item 42</a></li>
-						<li><a href="">Item 43</a></li>
-
-						<li><a href="">Item 44</a></li>
-					</ul>	
-				</li>
-			</ul>
-		</li>
-		<li>
-			<a href="">Work</a>
-			<ul>
-
-				<li>
-					<a href="">Work 1</a>
+					<a href="">衣飾</a>
 					<ul>
 						<li>
-							<a href="">Work 11</a>		
+							<a href="">內褲</a>		
 							<ul>
-								<li><a href="">Work 111</a></li>
-								<li><a href="">Work 112</a></li>
+								<li><a href="">冰絲</a></li>
+								<li><a href="">一般</a></li>
 
-								<li><a href="">Work 113</a></li>
+								<li><a href="">運動</a></li>
 							</ul>							
 						</li>
 						<li>
-							<a href="">Work 12</a>
+							<a href="">褲子</a>
 							<ul>
-								<li><a href="">Work 121</a></li>
-								<li><a href="">Work 122</a></li>
+								<li><a href="">1</a></li>
+								<li><a href="">2</a></li>
 
-								<li><a href="">Work 123</a></li>
-							</ul>							
-						</li>
-						<li>
-							<a href="">Work 13</a>
-							<ul>
-								<li><a href="">Work 131</a></li>
-								<li><a href="">Work 132</a></li>
-
-								<li><a href="">Work 133</a></li>
+								<li><a href="">3</a></li>
 							</ul>							
 						</li>
 					</ul>					
 				</li>
 				<li>
-					<a href="">Work 2</a>
+					<a href="">食物</a>
 					<ul>
 						<li>
 
-							<a href="">Work 21</a>
+							<a href="">麵</a>
 							<ul>
-								<li><a href="">Work 211</a></li>
-								<li><a href="">Work 212</a></li>
-								<li><a href="">Work 213</a></li>
+								<li><a href="">211</a></li>
+								<li><a href="">212</a></li>
+								<li><a href="">213</a></li>
 							</ul>							
 						</li>
 
 						<li>
-							<a href="">Work 22</a>
+							<a href="">冰品</a>
 							<ul>
-								<li><a href="">Work 221</a></li>
-								<li><a href="">Work 222</a></li>
-								<li><a href="">Work 223</a></li>
+								<li><a href="">221</a></li>
+								<li><a href="">222</a></li>
+								<li><a href="">223</a></li>
 							</ul>							
 						</li>
 
 						<li>
-							<a href="">Work 23</a>
+							<a href="">飲料</a>
 							<ul>
-								<li><a href="">Work 231</a></li>
-								<li><a href="">Work 232</a></li>
-								<li><a href="">Work 233</a></li>
+								<li><a href="">231</a></li>
+								<li><a href="">232</a></li>
+								<li><a href="">233</a></li>
 							</ul>							
 						</li>
 
-					</ul>					
-				</li>
-				<li>
-					<a href="">Work 3</a>
-					<ul>
-						<li>
-							<a href="">Work 31</a>
-							<ul>
-
-								<li><a href="">Work 311</a></li>
-								<li><a href="">Work 312</a></li>
-								<li><a href="">Work 313</a></li>
-							</ul>							
-						</li>
-						<li>
-							<a href="">Work 32</a>
-
-							<ul>
-								<li><a href="">Work 321</a></li>
-								<li><a href="">Work 322</a></li>
-								<li><a href="">Work 323</a></li>
-							</ul>							
-						</li>
-						<li>
-							<a href="">Work 33</a>
-
-							<ul>
-								<li><a href="">Work 331</a></li>
-								<li><a href="">Work 332</a></li>
-								<li><a href="">Work 333</a></li>
-							</ul>							
-						</li>
 					</ul>					
 				</li>
 
 			</ul>		
 		</li>
-		<li><a href="">About</a></li>
-		<li><a href="">Contact</a></li>				          
+		<li>
+			<a href="">開箱</a>
+			<ul>
+
+				<li>
+					<a href="">衣飾</a>
+					<ul>
+						<li>
+							<a href="">內褲</a>		
+							<ul>
+								<li><a href="">冰絲</a></li>
+								<li><a href="">一般</a></li>
+
+								<li><a href="">運動</a></li>
+							</ul>							
+						</li>
+						<li>
+							<a href="">褲子</a>
+							<ul>
+								<li><a href="">1</a></li>
+								<li><a href="">2</a></li>
+
+								<li><a href="">3</a></li>
+							</ul>							
+						</li>
+					</ul>					
+				</li>
+				<li>
+					<a href="">食物</a>
+					<ul>
+						<li>
+
+							<a href="">麵</a>
+							<ul>
+								<li><a href="">211</a></li>
+								<li><a href="">212</a></li>
+								<li><a href="">213</a></li>
+							</ul>							
+						</li>
+
+						<li>
+							<a href="">冰品</a>
+							<ul>
+								<li><a href="">221</a></li>
+								<li><a href="">222</a></li>
+								<li><a href="">223</a></li>
+							</ul>							
+						</li>
+
+						<li>
+							<a href="">飲料</a>
+							<ul>
+								<li><a href="">231</a></li>
+								<li><a href="">232</a></li>
+								<li><a href="">233</a></li>
+							</ul>							
+						</li>
+
+					</ul>					
+				</li>
+
+			</ul>		
+		</li>
+		<li><a href="">關於我</a></li>
+		<li><a href="">聯繫我們</a></li>				          
           </ul>
         </div>
       </div>
     </nav>
 
-    <header class="masthead text-center text-white d-flex">
+    <header class="masthead text-center  d-flex">
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-10 mx-auto">
@@ -226,7 +212,7 @@
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">利用第三方支付，提供最安全及最優惠，讓人放心的購物經驗</p>
+            <p class="">利用第三方支付，提供最安全及最優惠，讓人放心的購物經驗</p>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">了解更多</a>
           </div>
         </div>
