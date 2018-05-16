@@ -16,7 +16,8 @@
 		<!-- 指定各個jar檔版本 -->
 		
 		<!-- Spring -->
-		<springframework.version>4.0.7.RELEASE</springframework.version>
+		<springframework.version>4.1.6.RELEASE</springframework.version>
+		<springsecurity.version>4.0.1.RELEASE</springsecurity.version>
 		<spring-data-jpa.version>1.7.2.RELEASE</spring-data-jpa.version>
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.1.9.Final</hibernate.version>
@@ -30,7 +31,6 @@
 		<org.slf4j-version>1.7.7</org.slf4j-version>
 		<!-- Other -->
 		<lombok.version>1.16.6</lombok.version>
-		<javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
 	</properties>
 	<dependencies>
 		<!-- 
@@ -114,6 +114,34 @@
 			<version>${springframework.version}</version>
 		</dependency>
 		
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${springsecurity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${springsecurity.version}</version>
+        </dependency>
+ 
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>		
+		
 		
 		<!-- org.apache.commons.lang 3.0 ver -->
 		<dependency>
@@ -131,27 +159,6 @@
 			<scope>provided</scope>
 		</dependency>	
 		
-		<!-- servlet/jsp -->	
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<!-- 只對編譯跟測試classpath有效 -->
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.2</version>
-			<scope>provided</scope>
-		</dependency>
-		
-		<!-- JSTL dependency -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>${javax.servlet.jstl.version}</version>
-		</dependency>
 		<!-- jsp的 EL表達式 所使用 -->
 		<dependency>
    			<groupId>javax.el</groupId>
