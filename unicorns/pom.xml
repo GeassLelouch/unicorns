@@ -80,6 +80,11 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+		  <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-beans</artifactId>
+		    <version>${springframework.version}</version>
+		  </dependency>		
 		
 		<!-- jUnit 單元測試 匯入SpringApplicationConfiguration會用到 -->
 		<dependency>

@@ -43,7 +43,9 @@ response.flushBuffer();
   </head>
 
   <body id="page-top">
-
+	<!-- 要去common.js寫如果點擊選項後觸發submit -->
+	<form:form modelAttribute="product" id="productTarget" action="${pageContext.request.contextPath}/views/product/show" method="post">
+	</form:form>	
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
@@ -70,7 +72,7 @@ response.flushBuffer();
 		<li><a href="/">首頁</a></li>
 
 		<li>
-			<a href="">合購</a>
+			<button id="product">合購</button>
 		<ul>
 
 				<li>
@@ -436,7 +438,11 @@ response.flushBuffer();
 
 		// iPad
 		var isiPad = navigator.userAgent.match(/iPad/i) != null;
-		if (isiPad) $('#menu ul').addClass('no-transition');      
+		if (isiPad) $('#menu ul').addClass('no-transition');     
+		
+		$("#product").click(function() {
+			  $("#productTarget").submit();
+		});	
     });          
 </script>    
   </body>
