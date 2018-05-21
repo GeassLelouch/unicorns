@@ -19,19 +19,19 @@ public class HelloWorldController {
     @RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
     public String homePage(ModelMap model) {
         model.addAttribute("greeting", "Hi, Welcome to mysite. ");
-        return "welcome";
+        return "welcome.jsp";
     }
  
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminPage(ModelMap model) {
         model.addAttribute("user", getPrincipal());
-        return "admin";
+        return "admin.jsp";
     }
  
     @RequestMapping(value = "/db", method = RequestMethod.GET)
     public String dbaPage(ModelMap model) {
         model.addAttribute("user", getPrincipal());
-        return "dba";
+        return "dba.jsp";
     }
  
     @RequestMapping(value="/logout", method = RequestMethod.GET)
@@ -40,13 +40,13 @@ public class HelloWorldController {
           if (auth != null){    
              new SecurityContextLogoutHandler().logout(request, response, auth);
           }
-          return "welcome";
+          return "welcome.jsp";
        }
  
     @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
         model.addAttribute("user", getPrincipal());
-        return "accessDenied";
+        return "accessDenied.jsp";
     }
      
     private String getPrincipal(){

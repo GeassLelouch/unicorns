@@ -7,6 +7,6 @@
 </head>
 <body>
     Dear <strong>${user}</strong>, Welcome to DBA Page.
-    <a href="<c:url value="/logout" />">Logout</a>
+    <a href="<c:url value="/views/logout" />">Logout</a>
 </body>
 </html>

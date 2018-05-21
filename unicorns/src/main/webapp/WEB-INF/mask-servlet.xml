@@ -1,4 +1,4 @@
-<?xml  version="1.0" encoding="UTF-8"?>
+<!-- <?xml  version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -23,8 +23,8 @@
 	<mvc:resources mapping="/images/**" location="/images/" />
 	<mvc:resources mapping="/js/**" location="/js/" />
 
-	<!-- 前綴屬性會與ModelAndView返回的路徑資訊結合，ex: private static String PAGE = "report/print.jsp";
-		則結合為/WEB-INF/views/report/print.jsp-->
+	 前綴屬性會與ModelAndView返回的路徑資訊結合，ex: private static String PAGE = "report/print.jsp";
+		則結合為/WEB-INF/views/report/print.jsp
 	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="com.shell.view.JstlView" />
 		<property name="prefix">
@@ -52,4 +52,4 @@
 		</property>
 	</bean>
 
-</beans>
+</beans> -->

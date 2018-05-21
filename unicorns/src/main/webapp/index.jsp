@@ -44,7 +44,7 @@ response.flushBuffer();
 
   <body id="page-top">
 	<!-- 要去common.js寫如果點擊選項後觸發submit -->
-	<form:form modelAttribute="product" id="productTarget" action="${pageContext.request.contextPath}/views/product/show" method="post">
+	<form:form modelAttribute="product" id="productTarget" action="${pageContext.request.contextPath}/views/home" method="get">
 	</form:form>	
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -72,7 +72,7 @@ response.flushBuffer();
 		<li><a href="/">首頁</a></li>
 
 		<li>
-			<button id="product">合購</button>
+			<a href="javascript:void(0)" id="product">合購</a>
 		<ul>
 
 				<li>
