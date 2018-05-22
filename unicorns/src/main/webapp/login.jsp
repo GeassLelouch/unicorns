@@ -46,6 +46,10 @@ response.flushBuffer();
 	<!-- 要去common.js寫如果點擊選項後觸發submit -->
 	<form:form modelAttribute="product" id="productTarget" action="${pageContext.request.contextPath}/login" method="POST">
 	   <h1>Loginxxxxx</h1>
+	   	 <div class="error ${param.error == true ? '' : 'hide'}">  
+        		失敗<br>  
+        ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}  
+    	</div>  
       <table>
          <tr>
             <td>User:</td>
@@ -58,7 +62,7 @@ response.flushBuffer();
          <tr>
             <td><input name="submit" type="submit" value="submit" /></td>
          </tr>
-         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />`
+         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
       </table>
 	
 	</form:form>	

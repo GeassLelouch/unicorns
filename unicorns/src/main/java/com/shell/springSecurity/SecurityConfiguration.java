@@ -13,9 +13,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("bill").password("abc123").roles("USER");
-        auth.inMemoryAuthentication().withUser("admin").password("root123").roles("ADMIN");
-        auth.inMemoryAuthentication().withUser("dba").password("root123").roles("ADMIN","DBA");//dba have two roles.
+        auth.inMemoryAuthentication().withUser("bill").password("1").roles("USER");
+        auth.inMemoryAuthentication().withUser("admin").password("1").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("dba").password("1").roles("ADMIN","DBA");//dba have two roles.
     }
     
     @Override
@@ -31,6 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and().formLogin()
         .loginPage("/login.jsp")
         .loginProcessingUrl("/login")
+//        .failureUrl("/views/login?error")
         .usernameParameter("name")
         .passwordParameter("password")
         

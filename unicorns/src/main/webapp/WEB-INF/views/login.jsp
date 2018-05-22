@@ -45,8 +45,8 @@ response.flushBuffer();
   <body id="page-top">
 	<!-- 要去common.js寫如果點擊選項後觸發submit -->
 	<form:form modelAttribute="product" id="productTarget" action="${pageContext.request.contextPath}/login" method="POST">
-	
 	   <h1>Loginxxxxx</h1>
+	   ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
       <table>
          <tr>
             <td>User:</td>
@@ -59,7 +59,7 @@ response.flushBuffer();
          <tr>
             <td><input name="submit" type="submit" value="submit" /></td>
          </tr>
-         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />`
+         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
       </table>
 	
 	</form:form>	
@@ -83,6 +83,8 @@ response.flushBuffer();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script>
     $(function() {
+    	
+    	
     });          
 </script>    
   </body>
