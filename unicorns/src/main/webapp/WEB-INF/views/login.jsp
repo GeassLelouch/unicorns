@@ -1,51 +1,90 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/taglibs.jsp" %>
-<!-- car -->
-<!-- Google Fonts API 使用google所寫好的字體-->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/car/reset.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/car/htmleaf-demo.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/car/style.css"> <!-- Resource style -->
-<!-- 網站設計 -->
-<!-- Scripts -->
-<!-- 整個網站所共用匯入的javascript檔案 -->
-<%@ include file="/WEB-INF/views/common/script.jsp"%>
-<script src="${pageContext.request.contextPath}/js/car/main.js"></script>
-<script src="${pageContext.request.contextPath}/js/car/jquery.poptrox.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/car/jquery.scrolly.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/common/common.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-ui.js"></script>
-<script src="${pageContext.request.contextPath}/js/skel.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/util.js"></script>
-<script src="${pageContext.request.contextPath}/js/main.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
-		
-<script>
-	$(document).ready(function() {
-	  	
-		$("#registerSubmit").click(function() {
-			$("#registerForm").validate();
-			$("#registerForm").submit();
-		});	
-	});	
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<%
 
-<br/>
-<!-- Form -->
-<form:form id="registerForm" modelAttribute="member" action="${pageContext.request.contextPath}/views/index/loginConfirm" method="post">
-	<div class="">
-		<div >
-			帳號：<input type="text" name="userName" id="userName" class="required" value="" style="margin:0px auto;" placeholder="帳號" />
-		</div>
-		<div >
-			密碼：<input type="password" class="required" name="password" placeholder="密碼"/>
-		</div>					
-		<div >
-			<ul >
-				<li><input id="registerSubmit" type="submit" value="登入" class="special" /></li>
-				<li><input type="reset" value="清除" /></li>
-			</ul>
-		</div>
-	</div>
-</form:form>
+response.setHeader("Pragma", "no-cache");
+
+response.setHeader("Cache-Control", "no-cache");
+
+response.setDateHeader("Expires", 0);
+
+response.flushBuffer();
+
+%>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>unicorns</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="${pageContext.request.contextPath}/css/font-awesome/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="${pageContext.request.contextPath}/css/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="${pageContext.request.contextPath}/css/creative.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menuStyle.css" type="text/css" media="screen"/>
+	<style>
+
+	</style>    
+  </head>
+
+  <body id="page-top">
+	<!-- 要去common.js寫如果點擊選項後觸發submit -->
+	<form:form modelAttribute="product" id="productTarget" action="${pageContext.request.contextPath}/login" method="POST">
+	
+	   <h1>Loginxxxxx</h1>
+      <table>
+         <tr>
+            <td>User:</td>
+            <td><input type='text' name='name' value=''></td>
+         </tr>
+         <tr>
+            <td>Password:</td>
+            <td><input type='password' name='password' /></td>
+         </tr>
+         <tr>
+            <td><input name="submit" type="submit" value="submit" /></td>
+         </tr>
+         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />`
+      </table>
+	
+	</form:form>	
+
+
+
+	
+	
+    <!-- Bootstrap core JavaScript -->
+    <script src="${pageContext.request.contextPath}/js/jquery/jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="${pageContext.request.contextPath}/js/jquery-easing/jquery.easing.js"></script>
+    <script src="${pageContext.request.contextPath}/js/scrollreveal/scrollreveal.js"></script>
+    <script src="${pageContext.request.contextPath}/js/magnific-popup/jquery.magnific-popup.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="${pageContext.request.contextPath}/js/creative.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script>
+    $(function() {
+    });          
+</script>    
+  </body>
+
+</html>
