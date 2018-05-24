@@ -30,13 +30,8 @@ response.flushBuffer();
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
-    <!-- Plugin CSS -->
-    <link href="${pageContext.request.contextPath}/css/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="${pageContext.request.contextPath}/css/creative.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menuStyle.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signin.css" type="text/css" media="screen"/>
 	<style>
 
 	</style>    
@@ -45,26 +40,23 @@ response.flushBuffer();
   <body id="page-top">
 	<!-- 要去common.js寫如果點擊選項後觸發submit -->
 	<form:form modelAttribute="product" id="productTarget" action="${pageContext.request.contextPath}/login" method="POST">
-	   <h1>Loginxxxxx</h1>
-	   	 <div class="error ${param.error == true ? '' : 'hide'}">  
-        		失敗<br>  
-        ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}  
-    	</div>  
-      <table>
-         <tr>
-            <td>User:</td>
-            <td><input type='text' name='name' value=''></td>
-         </tr>
-         <tr>
-            <td>Password:</td>
-            <td><input type='password' name='password' /></td>
-         </tr>
-         <tr>
-            <td><input name="submit" type="submit" value="submit" /></td>
-         </tr>
-         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-      </table>
-	
+
+
+      
+      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">請輸入帳密</h1>
+      <label for="inputEmail" class="sr-only">電子信箱</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <label for="inputPassword" class="sr-only">密碼</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> 記住登入狀態
+        </label>
+      </div>
+      <button id="buttonx" class="btn btn-lg btn-primary btn-block" type="submit">登入xx</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>      
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	</form:form>	
 
 
@@ -87,6 +79,51 @@ response.flushBuffer();
 <script>
     $(function() {
     	
+    	
+        $('#button').click(function(){
+        	
+        	var name = $("#inputEmail").val();
+        	var password = $("#inputPassword").val();
+        	$.ajax({
+                url: '${pageContext.request.contextPath}' + '/login',
+                type: 'POST',
+                data: "name="+name+"&password="+password,
+                success: function (res, status) {
+                    window.location.href= '${pageContext.request.contextPath}' + '/index.jsp'
+                },
+                error: function(xhr, status, error) {
+                	//需要改良
+                	//HTTP Status 401 - 帳號或密碼錯誤
+//type Status report
+
+//message 帳號或密碼錯誤
+
+//description This request requires HTTP authentication.
+                    switch(xhr.status){
+                    case 401:
+                        alert("帳號或密碼錯誤");
+                        break;
+                    case 403:
+                        break;
+
+                    case 404:
+                        break;
+	                }
+                	  //不算太好的解法
+                	//var response = $.parseHTML(xhr.responseText);
+                	//if(xhr.status == 401) {
+                	  //  alert($(response).filter( 'u' ).text());
+                	//}
+                }
+                //基礎方式
+               // error: function (res, status) {
+                 //   alert(res.statusText);
+                //}
+            });
+
+        });    	
+    	
+
     	
     });          
 </script>    

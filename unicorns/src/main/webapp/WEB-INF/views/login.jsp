@@ -44,25 +44,49 @@ response.flushBuffer();
 
   <body id="page-top">
 	<!-- 要去common.js寫如果點擊選項後觸發submit -->
-	<form:form modelAttribute="product" id="productTarget" action="${pageContext.request.contextPath}/login" method="POST">
-	   <h1>Loginxxxxx</h1>
-	   ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
-      <table>
-         <tr>
-            <td>User:</td>
-            <td><input type='text' name='name' value=''></td>
-         </tr>
-         <tr>
-            <td>Password:</td>
-            <td><input type='password' name='password' /></td>
-         </tr>
-         <tr>
-            <td><input name="submit" type="submit" value="submit" /></td>
-         </tr>
-         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-      </table>
+<div class="grid">
+	<div class="row">
+			<div class="span1"></div>
+			<div class="span5">
+				<c:if test="{not empty error}">
+					 <div class="balloon bottom">
+                        <div class="padding20">
+                            ${error}
+                        </div>
+                    </div>
+				</c:if>
+				<c:if test="{not empty msg}">
+					 <div class="balloon bottom">
+                        <div class="padding20">
+                            ${msg}
+                        </div>
+                    </div>
+				</c:if>
+
+				    <form:form modelAttribute="product" id="productTarget" action="${pageContext.request.contextPath}/views/login" method="get">
+${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message }
+					<label for="username">Username</label>
+					<div class="input-control text">
+						<input type="text" value="" placeholder="input username" 
+						id="username" name="username"/>
+						<button class="btn-clear"></button>
+					</div> 
+					<label for="password">Password</label>
+					<div class="input-control password">
+						<input type="password" value="" placeholder="input password"
+						id="password" name="password"/>
+						<button class="btn-reveal"></button>
+					</div>
+					<input type="submit" value="Submit"/>
+					<input type="hidden" name="${_csrf.parameterName}"
+		             value="${_csrf.token}" />
+				    </form:form>    
+
+			</div>
+		</div>
+</div>
 	
-	</form:form>	
+	
 
 
 

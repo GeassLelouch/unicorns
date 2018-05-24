@@ -39,5 +39,9 @@
 		</property>
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames" value="classpath:org/springframework/security/messages_zh_CN"></property>
+    </bean>
 
 </beans>
