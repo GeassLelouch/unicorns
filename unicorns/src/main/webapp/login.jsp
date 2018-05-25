@@ -38,90 +38,114 @@ response.flushBuffer();
   </head>
 
   <body id="page-top">
-	<!-- 要去common.js寫如果點擊選項後觸發submit -->
-	<form:form modelAttribute="product" id="productTarget" action="${pageContext.request.contextPath}/login" method="POST">
 
 
       
-      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">請輸入帳密</h1>
-      <label for="inputEmail" class="sr-only">電子信箱</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">密碼</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> 記住登入狀態
-        </label>
+<form class="needs-validation" onSubmit="return false" novalidate>
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <!-- <label for="validationTooltip01">帳號</label> -->
+      <input type="text" class="form-control" id="validationTooltip01" placeholder="帳號" value="" required>
+      <!-- 
+      可以填寫 若輸入正確後提示字」
+      <div class="valid-tooltip"></div>  
+      -->
+      <div class="invalid-tooltip">
+          	請輸入帳號
       </div>
-      <button id="buttonx" class="btn btn-lg btn-primary btn-block" type="submit">登入xx</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>      
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	</form:form>	
+    </div>
+    <div class="col-md-12 mb-3">
+      <!-- <label for="validationTooltip01">帳號</label> -->
+      <input type="password" id="inputPassword" class="form-control" placeholder="密碼" required>
+      <!-- 
+      可以填寫 若輸入正確後提示字
+      <div class="valid-tooltip"></div>  
+      -->
+      <div class="invalid-tooltip">
+          	請輸入密碼
+      </div>
+    </div>
+    <label id="emailLabel"></label> 
+      <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>   
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	</div>
+</form>
 
 
-
-	
-	
-    <!-- Bootstrap core JavaScript -->
-    <script src="${pageContext.request.contextPath}/js/jquery/jquery.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap/bootstrap.bundle.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="${pageContext.request.contextPath}/js/jquery-easing/jquery.easing.js"></script>
-    <script src="${pageContext.request.contextPath}/js/scrollreveal/scrollreveal.js"></script>
-    <script src="${pageContext.request.contextPath}/js/magnific-popup/jquery.magnific-popup.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="${pageContext.request.contextPath}/js/creative.js"></script>
-    
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script>
     $(function() {
     	
+
+       	(function() {
+  		  window.addEventListener('load', function() {
+  		    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  		    var forms = document.getElementsByClassName('needs-validation');
+  		    // Loop over them and prevent submission
+  		    var validation = Array.prototype.filter.call(forms, function(form) {
+  		      form.addEventListener('submit', function(event) {
+  		        if (form.checkValidity() === false) {
+  		          event.preventDefault();
+  		          event.stopPropagation();
+  		        }else {
+  		        	//驗證成功，發出AJAX
+  		         	var name = $("#validationTooltip01").val();
+  		        	var password = $("#inputPassword").val();
+  		        	$.ajax({
+  		                url: '${pageContext.request.contextPath}' + '/login',
+  		                type: 'POST',
+  		                data: "name="+name+"&password="+password,
+  		                success: function (res, status) {
+  		                    window.location.href= '${pageContext.request.contextPath}' + '/index.jsp'
+  		                },
+  		                error: function(xhr, status, error) {
+  		                	//需要改良
+  		                	//HTTP Status 401 - 帳號或密碼錯誤
+  		//type Status report
+
+  		//message 帳號或密碼錯誤
+
+  		//description This request requires HTTP authentication.
+  		                    switch(xhr.status){
+  		                    case 401:
+  		                    	var error = "帳號或密碼錯誤";
+  		                    	$( "#emailLabel" ).html('<font  color="red">帳號或密碼錯誤</font>')
+  		                        break;
+  		                    	
+  		                    case 403:
+  		                        break;
+
+  		                    case 404:
+  		                        break;
+  		                    }
+  		                	  //不算太好的解法
+  		                	//var response = $.parseHTML(xhr.responseText);
+  		                	//if(xhr.status == 401) {
+  		                	  //  alert($(response).filter( 'u' ).text());
+  		                	//}
+  		                	
+  		                }
+  		                //基礎方式
+  		               // error: function (res, status) {
+  		                 //   alert(res.statusText);
+  		                //}
+  		              	
+  		            });
+  		        }
+  		        form.classList.add('was-validated');
+  		      }, false);
+  		    });
+  		  }, false);
+  		})();    	
     	
-        $('#button').click(function(){
-        	
-        	var name = $("#inputEmail").val();
-        	var password = $("#inputPassword").val();
-        	$.ajax({
-                url: '${pageContext.request.contextPath}' + '/login',
-                type: 'POST',
-                data: "name="+name+"&password="+password,
-                success: function (res, status) {
-                    window.location.href= '${pageContext.request.contextPath}' + '/index.jsp'
-                },
-                error: function(xhr, status, error) {
-                	//需要改良
-                	//HTTP Status 401 - 帳號或密碼錯誤
-//type Status report
-
-//message 帳號或密碼錯誤
-
-//description This request requires HTTP authentication.
-                    switch(xhr.status){
-                    case 401:
-                        alert("帳號或密碼錯誤");
-                        break;
-                    case 403:
-                        break;
-
-                    case 404:
-                        break;
-	                }
-                	  //不算太好的解法
-                	//var response = $.parseHTML(xhr.responseText);
-                	//if(xhr.status == 401) {
-                	  //  alert($(response).filter( 'u' ).text());
-                	//}
-                }
-                //基礎方式
-               // error: function (res, status) {
-                 //   alert(res.statusText);
-                //}
-            });
-
-        });    	
+    	
+    	
+    	
+    	
+    	
+    	
     	
 
     	
